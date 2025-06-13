@@ -22,6 +22,7 @@ go run ./cmd/api
 
 
 The server exposes a versioned API under `/api/v1`. Only a simple health check is implemented but the router already includes endpoints for authentication, user profiles and recipes as described in the design docs.
+The router also applies placeholder middleware for authentication, CORS, logging, and panic recovery.
 
 ### Frontend
 
