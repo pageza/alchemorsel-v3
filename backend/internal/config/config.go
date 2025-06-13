@@ -22,12 +22,14 @@ type ServerConfig struct {
 }
 
 type DatabaseConfig struct {
-	Host     string
-	Port     int
-	User     string
-	Password string
-	Name     string
-	SSLMode  string
+	Host         string
+	Port         int
+	User         string
+	Password     string
+	Name         string
+	SSLMode      string
+	MaxOpenConns int
+	MaxIdleConns int
 }
 
 // Load reads configuration from environment variables with sane defaults.
@@ -40,12 +42,14 @@ func Load() Config {
 			WriteTimeout: 10 * time.Second,
 		},
 		Database: DatabaseConfig{
-			Host:     getEnv("DB_HOST", "localhost"),
-			Port:     getEnvInt("DB_PORT", 5432),
-			User:     getEnv("DB_USER", "postgres"),
-			Password: getEnv("DB_PASSWORD", ""),
-			Name:     getEnv("DB_NAME", "alchemorsel"),
-			SSLMode:  getEnv("DB_SSLMODE", "disable"),
+			Host:         getEnv("DB_HOST", "localhost"),
+			Port:         getEnvInt("DB_PORT", 5432),
+			User:         getEnv("DB_USER", "postgres"),
+			Password:     getEnv("DB_PASSWORD", ""),
+			Name:         getEnv("DB_NAME", "alchemorsel"),
+			SSLMode:      getEnv("DB_SSLMODE", "disable"),
+			MaxOpenConns: getEnvInt("DB_MAX_OPEN_CONNS", 10),
+			MaxIdleConns: getEnvInt("DB_MAX_IDLE_CONNS", 5),
 		},
 	}
 
@@ -59,7 +63,6 @@ func getEnv(key, fallback string) string {
 	return fallback
 }
 
-
 func getEnvInt(key string, fallback int) int {
 	if v := os.Getenv(key); v != "" {
 		if i, err := strconv.Atoi(v); err == nil {
@@ -69,4 +72,3 @@ func getEnvInt(key string, fallback int) int {
 	log.Printf("%s not set, using default %d", key, fallback)
 	return fallback
 }
-
