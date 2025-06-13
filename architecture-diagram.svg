@@ -1,0 +1,140 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Alchemorsel v2 - System Architecture</text>
+  
+  <!-- Client Layer -->
+  <g id="client-layer">
+    <rect x="50" y="60" width="300" height="120" fill="#3B82F6" stroke="#1E40AF" stroke-width="2" rx="5"/>
+    <text x="200" y="90" text-anchor="middle" fill="white" font-family="Arial" font-size="16" font-weight="bold">Client Layer</text>
+    <text x="200" y="115" text-anchor="middle" fill="white" font-family="Arial" font-size="14">Vue 3 + TypeScript</text>
+    <text x="200" y="135" text-anchor="middle" fill="white" font-family="Arial" font-size="14">Vite + Tailwind CSS</text>
+    <text x="200" y="155" text-anchor="middle" fill="white" font-family="Arial" font-size="14">Pinia State Management</text>
+  </g>
+  
+  <!-- API Gateway -->
+  <g id="api-gateway">
+    <rect x="450" y="60" width="300" height="120" fill="#10B981" stroke="#059669" stroke-width="2" rx="5"/>
+    <text x="600" y="90" text-anchor="middle" fill="white" font-family="Arial" font-size="16" font-weight="bold">API Gateway</text>
+    <text x="600" y="115" text-anchor="middle" fill="white" font-family="Arial" font-size="14">Nginx Reverse Proxy</text>
+    <text x="600" y="135" text-anchor="middle" fill="white" font-family="Arial" font-size="14">Load Balancing</text>
+    <text x="600" y="155" text-anchor="middle" fill="white" font-family="Arial" font-size="14">SSL Termination</text>
+  </g>
+  
+  <!-- CDN -->
+  <g id="cdn">
+    <rect x="850" y="60" width="300" height="120" fill="#F59E0B" stroke="#D97706" stroke-width="2" rx="5"/>
+    <text x="1000" y="90" text-anchor="middle" fill="white" font-family="Arial" font-size="16" font-weight="bold">CDN / Storage</text>
+    <text x="1000" y="115" text-anchor="middle" fill="white" font-family="Arial" font-size="14">AWS S3</text>
+    <text x="1000" y="135" text-anchor="middle" fill="white" font-family="Arial" font-size="14">Profile Pictures</text>
+    <text x="1000" y="155" text-anchor="middle" fill="white" font-family="Arial" font-size="14">Static Assets</text>
+  </g>
+  
+  <!-- Backend Services -->
+  <g id="backend-layer">
+    <!-- Auth Service -->
+    <rect x="50" y="240" width="220" height="100" fill="#8B5CF6" stroke="#6D28D9" stroke-width="2" rx="5"/>
+    <text x="160" y="265" text-anchor="middle" fill="white" font-family="Arial" font-size="14" font-weight="bold">Auth Service</text>
+    <text x="160" y="285" text-anchor="middle" fill="white" font-family="Arial" font-size="12">JWT Auth</text>
+    <text x="160" y="300" text-anchor="middle" fill="white" font-family="Arial" font-size="12">User Registration</text>
+    <text x="160" y="315" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Password Reset</text>
+    
+    <!-- User Service -->
+    <rect x="290" y="240" width="220" height="100" fill="#8B5CF6" stroke="#6D28D9" stroke-width="2" rx="5"/>
+    <text x="400" y="265" text-anchor="middle" fill="white" font-family="Arial" font-size="14" font-weight="bold">User Service</text>
+    <text x="400" y="285" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Profile Management</text>
+    <text x="400" y="300" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Preferences</text>
+    <text x="400" y="315" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Allergies</text>
+    
+    <!-- Recipe Service -->
+    <rect x="530" y="240" width="220" height="100" fill="#8B5CF6" stroke="#6D28D9" stroke-width="2" rx="5"/>
+    <text x="640" y="265" text-anchor="middle" fill="white" font-family="Arial" font-size="14" font-weight="bold">Recipe Service</text>
+    <text x="640" y="285" text-anchor="middle" fill="white" font-family="Arial" font-size="12">CRUD Operations</text>
+    <text x="640" y="300" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Search & Filter</text>
+    <text x="640" y="315" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Favorites</text>
+    
+    <!-- LLM Service -->
+    <rect x="770" y="240" width="220" height="100" fill="#8B5CF6" stroke="#6D28D9" stroke-width="2" rx="5"/>
+    <text x="880" y="265" text-anchor="middle" fill="white" font-family="Arial" font-size="14" font-weight="bold">LLM Service</text>
+    <text x="880" y="285" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Recipe Generation</text>
+    <text x="880" y="300" text-anchor="middle" fill="white" font-family="Arial" font-size="12">DeepSeek API</text>
+    <text x="880" y="315" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Embeddings</text>
+  </g>
+  
+  <!-- Data Layer -->
+  <g id="data-layer">
+    <!-- PostgreSQL -->
+    <rect x="50" y="400" width="300" height="120" fill="#EF4444" stroke="#DC2626" stroke-width="2" rx="5"/>
+    <text x="200" y="430" text-anchor="middle" fill="white" font-family="Arial" font-size="16" font-weight="bold">PostgreSQL + pgvector</text>
+    <text x="200" y="455" text-anchor="middle" fill="white" font-family="Arial" font-size="14">User Data</text>
+    <text x="200" y="475" text-anchor="middle" fill="white" font-family="Arial" font-size="14">Recipe Storage</text>
+    <text x="200" y="495" text-anchor="middle" fill="white" font-family="Arial" font-size="14">Vector Embeddings</text>
+    
+    <!-- Redis -->
+    <rect x="450" y="400" width="300" height="120" fill="#EF4444" stroke="#DC2626" stroke-width="2" rx="5"/>
+    <text x="600" y="430" text-anchor="middle" fill="white" font-family="Arial" font-size="16" font-weight="bold">Redis Cache</text>
+    <text x="600" y="455" text-anchor="middle" fill="white" font-family="Arial" font-size="14">Session Storage</text>
+    <text x="600" y="475" text-anchor="middle" fill="white" font-family="Arial" font-size="14">Rate Limiting</text>
+    <text x="600" y="495" text-anchor="middle" fill="white" font-family="Arial" font-size="14">Hot Data Cache</text>
+    
+    <!-- External APIs -->
+    <rect x="850" y="400" width="300" height="120" fill="#EF4444" stroke="#DC2626" stroke-width="2" rx="5"/>
+    <text x="1000" y="430" text-anchor="middle" fill="white" font-family="Arial" font-size="16" font-weight="bold">External Services</text>
+    <text x="1000" y="455" text-anchor="middle" fill="white" font-family="Arial" font-size="14">DeepSeek API</text>
+    <text x="1000" y="475" text-anchor="middle" fill="white" font-family="Arial" font-size="14">AWS S3</text>
+    <text x="1000" y="495" text-anchor="middle" fill="white" font-family="Arial" font-size="14">SMTP Server</text>
+  </g>
+  
+  <!-- Infrastructure Layer -->
+  <g id="infrastructure-layer">
+    <rect x="50" y="580" width="1100" height="80" fill="#6B7280" stroke="#4B5563" stroke-width="2" rx="5"/>
+    <text x="600" y="610" text-anchor="middle" fill="white" font-family="Arial" font-size="16" font-weight="bold">Infrastructure Layer</text>
+    <text x="300" y="635" text-anchor="middle" fill="white" font-family="Arial" font-size="14">Docker Compose</text>
+    <text x="600" y="635" text-anchor="middle" fill="white" font-family="Arial" font-size="14">GitHub Actions CI/CD</text>
+    <text x="900" y="635" text-anchor="middle" fill="white" font-family="Arial" font-size="14">Monitoring (Prometheus + Grafana)</text>
+  </g>
+  
+  <!-- Connections -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Client to API Gateway -->
+  <line x1="350" y1="120" x2="450" y2="120" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- API Gateway to Services -->
+  <line x1="600" y1="180" x2="160" y2="240" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="600" y1="180" x2="400" y2="240" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="600" y1="180" x2="640" y2="240" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="600" y1="180" x2="880" y2="240" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Services to Data Layer -->
+  <line x1="160" y1="340" x2="200" y2="400" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="400" y1="340" x2="200" y2="400" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="640" y1="340" x2="200" y2="400" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="640" y1="340" x2="600" y2="400" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="880" y1="340" x2="1000" y2="400" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Client to CDN -->
+  <line x1="350" y1="100" x2="850" y2="100" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Legend -->
+  <g id="legend" transform="translate(50, 700)">
+    <text x="0" y="0" font-family="Arial" font-size="14" font-weight="bold">Legend:</text>
+    <rect x="0" y="10" width="20" height="15" fill="#3B82F6"/>
+    <text x="25" y="22" font-family="Arial" font-size="12">Frontend</text>
+    
+    <rect x="100" y="10" width="20" height="15" fill="#10B981"/>
+    <text x="125" y="22" font-family="Arial" font-size="12">Gateway</text>
+    
+    <rect x="200" y="10" width="20" height="15" fill="#8B5CF6"/>
+    <text x="225" y="22" font-family="Arial" font-size="12">Services</text>
+    
+    <rect x="300" y="10" width="20" height="15" fill="#EF4444"/>
+    <text x="325" y="22" font-family="Arial" font-size="12">Data/External</text>
+    
+    <rect x="420" y="10" width="20" height="15" fill="#6B7280"/>
+    <text x="445" y="22" font-family="Arial" font-size="12">Infrastructure</text>
+  </g>
+</svg>
