@@ -3,13 +3,14 @@ package http
 import (
 	"github.com/gin-gonic/gin"
 
-
 	"alchemorsel/backend/internal/interfaces/http/handlers"
+	"alchemorsel/backend/internal/interfaces/http/middleware"
 )
 
 // SetupRouter configures all HTTP routes following the design docs.
 func SetupRouter() *gin.Engine {
-	r := gin.Default()
+	r := gin.New()
+	r.Use(middleware.Recovery(), middleware.Logging(), middleware.CORS())
 
 	api := r.Group("/api/v1")
 	{
@@ -22,8 +23,9 @@ func SetupRouter() *gin.Engine {
 			auth.POST("/refresh", handlers.RefreshToken)
 		}
 
-		// Protected routes – authentication middleware would be added here.
+		// Protected routes require authentication middleware.
 		protected := api.Group("")
+		protected.Use(middleware.Auth())
 		{
 			users := protected.Group("/users")
 			{
@@ -44,7 +46,6 @@ func SetupRouter() *gin.Engine {
 			protected.POST("/llm/generate", handlers.GenerateRecipe)
 		}
 	}
-
 
 	return r
 }
