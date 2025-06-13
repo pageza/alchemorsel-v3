@@ -10,7 +10,12 @@ import (
 // SetupRouter configures all HTTP routes following the design docs.
 func SetupRouter() *gin.Engine {
 	r := gin.New()
-	r.Use(middleware.Recovery(), middleware.Logging(), middleware.CORS())
+	r.Use(
+		middleware.Recovery(),
+		middleware.RequestID(),
+		middleware.Logging(),
+		middleware.CORS(),
+	)
 
 	api := r.Group("/api/v1")
 	{
