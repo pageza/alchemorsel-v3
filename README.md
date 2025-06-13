@@ -34,6 +34,30 @@ npm run dev
 
 Then open `http://localhost:5173`.
 
+### Configuration
+
+Copy `.env.example` to `.env` and adjust any of the values if needed. The
+backend reads these variables when starting up.
+
+### Makefile
+
+Common commands are wrapped in a simple `Makefile`. From the project root you
+can run:
+
+```bash
+make run  # start the API server
+make test # run backend tests
+```
+
+### Docker Compose
+
+`docker-compose.yml` launches the API together with PostgreSQL and Redis. Start
+all services with:
+
+```bash
+docker-compose up
+```
+
 ## Documentation
 
 Please refer to the markdown files such as `system-overview.md` and `implementation-order.md` for a detailed description of the architecture, API design, and testing approach.
