@@ -14,6 +14,7 @@ func SetupRouter() *gin.Engine {
 		middleware.Recovery(),
 		middleware.RequestID(),
 		middleware.Logging(),
+		middleware.ErrorHandler(),
 		middleware.CORS(),
 	)
 
