@@ -1,0 +1,12 @@
+# Go
+/bin/
+/pkg/
+*.exe
+*.test
+
+# Node
+node_modules/
+/dist/
+
+# Environment
+.env
