@@ -49,6 +49,17 @@ make run  # start the API server
 make test # run backend tests
 ```
 
+### Git Hooks
+
+Run the following command once to enable the provided hooks:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+The `pre-commit` hook verifies code formatting and runs tests before allowing a
+commit.
+
 ### Docker Compose
 
 `docker-compose.yml` launches the API together with PostgreSQL and Redis. Start
