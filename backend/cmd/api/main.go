@@ -13,8 +13,11 @@ func main() {
 
 	addr := fmt.Sprintf("%s:%d", cfg.Server.Host, cfg.Server.Port)
 	log.Printf("Starting server on %s", addr)
-	r := httpserver.SetupRouter()
-	if err := r.Run(addr); err != nil {
+
+
+	router := httpserver.SetupRouter()
+	if err := router.Run(addr); err != nil {
+
 		log.Fatal(err)
 	}
 }
