@@ -3,6 +3,7 @@ package config
 import (
 	"log"
 	"os"
+
 	"strconv"
 	"time"
 )
@@ -47,6 +48,7 @@ func Load() Config {
 			SSLMode:  getEnv("DB_SSLMODE", "disable"),
 		},
 	}
+
 }
 
 func getEnv(key, fallback string) string {
@@ -57,6 +59,7 @@ func getEnv(key, fallback string) string {
 	return fallback
 }
 
+
 func getEnvInt(key string, fallback int) int {
 	if v := os.Getenv(key); v != "" {
 		if i, err := strconv.Atoi(v); err == nil {
@@ -66,3 +69,4 @@ func getEnvInt(key string, fallback int) int {
 	log.Printf("%s not set, using default %d", key, fallback)
 	return fallback
 }
+

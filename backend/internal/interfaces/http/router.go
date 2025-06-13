@@ -3,6 +3,7 @@ package http
 import (
 	"github.com/gin-gonic/gin"
 
+
 	"alchemorsel/backend/internal/interfaces/http/handlers"
 )
 
@@ -43,6 +44,7 @@ func SetupRouter() *gin.Engine {
 			protected.POST("/llm/generate", handlers.GenerateRecipe)
 		}
 	}
+
 
 	return r
 }
