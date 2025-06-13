@@ -1,0 +1,15 @@
+#!/bin/sh
+# Simple pre-commit hook to enforce formatting and run tests
+# Format check
+fmt_files=$(gofmt -l $(git ls-files '*.go'))
+if [ -n "$fmt_files" ]; then
+  echo "Go files not formatted:" >&2
+  echo "$fmt_files" >&2
+  exit 1
+fi
+# Run tests
+make test > /dev/null
+if [ $? -ne 0 ]; then
+  echo "Tests failed" >&2
+  exit 1
+fi
