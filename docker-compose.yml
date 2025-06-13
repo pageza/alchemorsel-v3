@@ -1,0 +1,36 @@
+version: '3.9'
+services:
+  api:
+    image: golang:1.23
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    command: go run ./cmd/api
+    environment:
+      APP_HOST: 0.0.0.0
+      APP_PORT: 8080
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: alchemorsel
+      DB_SSLMODE: disable
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: alchemorsel
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"

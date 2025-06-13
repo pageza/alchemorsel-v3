@@ -8,10 +8,12 @@ import (
 
 	"alchemorsel/backend/internal/config"
 	"github.com/fergusstrange/embedded-postgres"
+	"github.com/google/uuid"
 )
 
 func TestConnectAndMigrate(t *testing.T) {
-	ep := embeddedpostgres.NewDatabase()
+	password := uuid.New().String()
+	ep := embeddedpostgres.NewDatabase(embeddedpostgres.DefaultConfig().Password(password))
 	if err := ep.Start(); err != nil {
 		t.Skipf("embedded postgres unavailable: %v", err)
 	}
@@ -21,7 +23,7 @@ func TestConnectAndMigrate(t *testing.T) {
 		Host:         "localhost",
 		Port:         5432,
 		User:         "postgres",
-		Password:     "postgres",
+		Password:     password,
 		Name:         "postgres",
 		SSLMode:      "disable",
 		MaxOpenConns: 7,
