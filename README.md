@@ -1,8 +1,6 @@
 # Alchemorsel v3
 
- contains documentation and a project skeleton for **Alchemorsel**, an AI‑powered recipe application.  The code aligns with the architecture and API design documents shipped in this repository.
-=======
-This repository contains documentation and a small project skeleton for **Alchemorsel**, an AI‑powered recipe application. The architecture is based on the markdown files found in this repo.
+This repository contains documentation and a small project skeleton for **Alchemorsel**, an AI‑powered recipe application. The code aligns with the architecture and API design documents included in this repo.
 
 
 ## Contents
